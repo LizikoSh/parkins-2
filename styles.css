@@ -297,7 +297,7 @@ input:focus-visible {
 
 .hero {
   --hero-image-opacity: 0.4;
-  --hero-bg-position: center 42%;
+  --hero-bg-position: right center;
   --hero-overlay-top: rgba(255, 253, 248, 0.46);
   --hero-overlay-mid: rgba(255, 252, 247, 0.28);
   --hero-overlay-bottom: rgba(245, 241, 232, 0.40);
@@ -319,7 +319,7 @@ input:focus-visible {
 
 .hero::before {
   z-index: 0;
-  background: url("assets/hero-support.jpg") var(--hero-bg-position) / cover no-repeat;
+  background: url("assets/hero-support.jpg") var(--hero-bg-position) / contain no-repeat;
   opacity: var(--hero-image-opacity);
   transform: scale(1.02);
 }
@@ -1330,7 +1330,7 @@ body.high-contrast .resource-card {
 
   .hero {
     --hero-image-opacity: 0.48;
-    --hero-bg-position: 58% 34%;
+    --hero-bg-position: right center;
     --hero-overlay-top: rgba(255, 253, 248, 0.58);
     --hero-overlay-mid: rgba(255, 252, 247, 0.40);
     --hero-overlay-bottom: rgba(245, 241, 232, 0.60);
@@ -3525,5 +3525,15 @@ body.high-contrast .movement-page .safety-banner {
 
   .doctor-visit-page .visit-note-grid {
     grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Мобільний hero: показуємо праву половину фото */
+@media (max-width: 760px) {
+  .hero::before {
+    background-size: 200% auto;
+    background-position: right center;
+    background-repeat: no-repeat;
+    transform: none;
   }
 }
