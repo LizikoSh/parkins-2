@@ -296,6 +296,12 @@ input:focus-visible {
 }
 
 .hero {
+  --hero-image-opacity: 0.4;
+  --hero-bg-position: center 42%;
+  --hero-overlay-top: rgba(255, 253, 248, 0.46);
+  --hero-overlay-mid: rgba(255, 252, 247, 0.28);
+  --hero-overlay-bottom: rgba(245, 241, 232, 0.40);
+  --hero-overlay-glow: rgba(255, 255, 255, 0.16);
   position: relative;
   isolation: isolate;
   overflow: hidden;
@@ -313,16 +319,16 @@ input:focus-visible {
 
 .hero::before {
   z-index: 0;
-  background: url("assets/hero-support.jpg") center center / cover no-repeat;
-  opacity: 0.38;
+  background: url("assets/hero-support.jpg") var(--hero-bg-position) / cover no-repeat;
+  opacity: var(--hero-image-opacity);
   transform: scale(1.02);
 }
 
 .hero::after {
   z-index: 0;
   background:
-    linear-gradient(180deg, rgba(255, 253, 248, 0.78) 0%, rgba(255, 252, 247, 0.58) 42%, rgba(245, 241, 232, 0.72) 100%),
-    radial-gradient(circle at 70% 28%, rgba(255, 255, 255, 0.3), transparent 30%);
+    linear-gradient(180deg, var(--hero-overlay-top) 0%, var(--hero-overlay-mid) 42%, var(--hero-overlay-bottom) 100%),
+    radial-gradient(circle at 70% 28%, var(--hero-overlay-glow), transparent 30%);
 }
 
 .hero__decor {
@@ -1323,6 +1329,12 @@ body.high-contrast .resource-card {
   }
 
   .hero {
+    --hero-image-opacity: 0.48;
+    --hero-bg-position: 58% 34%;
+    --hero-overlay-top: rgba(255, 253, 248, 0.58);
+    --hero-overlay-mid: rgba(255, 252, 247, 0.40);
+    --hero-overlay-bottom: rgba(245, 241, 232, 0.60);
+    --hero-overlay-glow: rgba(255, 255, 255, 0.20);
     padding-top: 58px;
   }
 
