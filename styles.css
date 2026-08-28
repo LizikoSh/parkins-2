@@ -297,15 +297,37 @@ input:focus-visible {
 
 .hero {
   position: relative;
+  isolation: isolate;
   overflow: hidden;
   padding: clamp(76px, 9vw, 126px) 0;
+  background: linear-gradient(135deg, #fffdf8 0%, #f6f2e8 55%, #eef5ef 100%);
+}
+
+.hero::before,
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.hero::before {
+  z-index: 0;
+  background: url("assets/hero-support.jpg") center center / cover no-repeat;
+  opacity: 0.38;
+  transform: scale(1.02);
+}
+
+.hero::after {
+  z-index: 0;
   background:
-    radial-gradient(circle at 70% 28%, rgba(220, 235, 229, 0.8), transparent 29%),
-    linear-gradient(135deg, #fffdf8 0%, #f6f2e8 55%, #eef5ef 100%);
+    linear-gradient(180deg, rgba(255, 253, 248, 0.78) 0%, rgba(255, 252, 247, 0.58) 42%, rgba(245, 241, 232, 0.72) 100%),
+    radial-gradient(circle at 70% 28%, rgba(255, 255, 255, 0.3), transparent 30%);
 }
 
 .hero__decor {
   position: absolute;
+  z-index: 1;
   border: 1px solid rgba(47, 102, 98, 0.15);
   border-radius: 50%;
   pointer-events: none;
@@ -327,7 +349,7 @@ input:focus-visible {
 
 .hero__grid {
   position: relative;
-  z-index: 1;
+  z-index: 2;
   display: grid;
   grid-template-columns: minmax(0, 1.35fr) minmax(330px, 0.65fr);
   gap: clamp(42px, 7vw, 92px);
